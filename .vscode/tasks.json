@@ -1,0 +1,48 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "laminate",
+			"type": "shell",
+			"options": { "cwd": "${workspaceFolder}/build" },
+			"presentation": {
+				"clear": true,
+				"reveal": "silent"
+			},
+			"group": { "kind": "build", "isDefault": true },
+
+			"command": "make",
+			"args": ["laminate"],
+
+			"windows": { "command": "nmake" }
+		},
+		{
+			"label": "downsize",
+			"type": "shell",
+			"options": { "cwd": "${workspaceFolder}/build" },
+			"presentation": { "clear": true, "reveal": "silent" },
+
+			"command": "",
+			"args": [
+				"mogrify",
+				"-strip",
+				"-resize",
+				"\"1280x720>\"",
+				"-colors",
+				"64",
+				"\"${input:image-pattern}\""
+			],
+
+			// Currently broken on Windows.
+			"windows": { "command": "wsl" }
+		}
+	],
+	"inputs": [
+		{
+			"id": "image-pattern",
+			"description": "Image file pattern:",
+			"default": "../*.png",
+			"type": "promptString"
+		}
+	]
+}
