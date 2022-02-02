@@ -2,7 +2,7 @@
 
 # Predictive Text RNNs and n-grams for MIT Confessions
 
-Jun. 29, 2018
+June 29, 2018
 
 There are few things more human than language. Inspired by Karpathy's famous [RNN Post](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) and my recent acquisition of a high-end GPU, I decided that it would be a good time to gain some hands-on RNN experience myself.
 

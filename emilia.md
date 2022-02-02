@@ -2,7 +2,7 @@
 
 # A Brief History of Emilia
 
-Dec. 25, 2018
+December 25, 2018
 
 Over the course of eight years and many builds, I have come to see a fledgeling desire to steal my father's computer passwords transform into 7000 lines of C++, a sub-par webserver for HTTP and SMTP, and a wealth of experience about low-level WinAPI and network protocols that I'll probably never use again.
 

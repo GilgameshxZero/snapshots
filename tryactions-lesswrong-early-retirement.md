@@ -2,8 +2,8 @@
 
 # A No-Nonsense Guide to Early Retirement
 
+September 21, 2021
 <https://www.lesswrong.com/posts/ttXGrquvXgouawHEq>
-2021-09-21
 
 Can compute expected retirement from:
 
@@ -30,4 +30,4 @@ Start converting some traditional funds to Roth if you'll need the money 5 years
   * Keep your expenses the same modulo inflation.
   * Do whatever you want!  Keep some level of professional activity / money-making to further reduce your risk.
 
-![](lesswrong-early-retirement.md-assets/2021-09-21-09-21-51.png#unbounded-height)
+![](tryactions-lesswrong-early-retirement.md-assets/2021-09-21-09-21-51.png#unbounded-height)

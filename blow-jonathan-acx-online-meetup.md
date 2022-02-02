@@ -2,8 +2,8 @@
 
 # Jonathan Blow at the ACX Online Meetup
 
+September 20, 2021
 <https://www.youtube.com/watch?v=JyJRZprVjdY>
-2021-09-20
 
 Independent video game developer.
 
