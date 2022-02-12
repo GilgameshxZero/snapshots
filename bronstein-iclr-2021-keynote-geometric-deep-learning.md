@@ -11,7 +11,7 @@ GDL aims to provide a unifying framework for good ML ideas and architectures. By
 
 An equivariant transformation is not affected by symmetries in the input; an invariant transformation is.
 
-* Convolutional layers are equivariant;
+* Convolutional layers are equivariant.
 * Pooling layers are invariant.
 
 Similar synonyms can be found in transformers/attention, as well as GNNs. Thus, the equivariant/invariant structure is strong and indicative of good ideas in ML.
