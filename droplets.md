@@ -14,4 +14,4 @@
 * <https://boards.greenhouse.io/flagshippioneeringinc/jobs/5753918002?gh_jid=5753918002&gh_src=53e18e1b2us>
 * <https://centerforfiction.org/group-workshop/alternative-argentinas-with-sam-rutter/>
 * <https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html>
-
+* <https://newpublic.substack.com/p/-from-street-cafes-to-sacred-sites>
