@@ -15,3 +15,5 @@
 * <https://centerforfiction.org/group-workshop/alternative-argentinas-with-sam-rutter/>
 * <https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html>
 * <https://newpublic.substack.com/p/-from-street-cafes-to-sacred-sites>
+* <https://www.bain.com/contentassets/d620202718c146359acb05c02d9060db/bain-report_the-working-future.pdf>
+* <http://fast-code.csail.mit.edu/>
