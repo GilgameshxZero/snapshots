@@ -18,3 +18,4 @@
 * <https://www.bain.com/contentassets/d620202718c146359acb05c02d9060db/bain-report_the-working-future.pdf>
 * <http://fast-code.csail.mit.edu/>
 * <https://codeforces.com/blog/entry/92339>
+* <https://zoescaman.substack.com/p/mad-men-furious-women>
