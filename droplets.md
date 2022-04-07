@@ -19,3 +19,4 @@
 * <http://fast-code.csail.mit.edu/>
 * <https://codeforces.com/blog/entry/92339>
 * <https://zoescaman.substack.com/p/mad-men-furious-women>
+* <https://www.nytimes.com/2022/03/02/nyregion/nyc-jail-beating-rikers.html>
