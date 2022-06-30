@@ -20,3 +20,5 @@
 * <https://codeforces.com/blog/entry/92339>
 * <https://zoescaman.substack.com/p/mad-men-furious-women>
 * <https://www.nytimes.com/2022/03/02/nyregion/nyc-jail-beating-rikers.html>
+* <https://electricliterature.com/i-was-surrounded-by-final-girls-in-school-while-knowing-id-never-become-one/>
+* <https://www.notion.so/ttw-public/Adversarial-Examples-A-Survey-ae379c32ebbc4d84bb1aa2d05912ab93>
