@@ -2,47 +2,26 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			/* Prepares Markdown-ALl-In-One-generated HTML for frontend. Lamination is idempotent. */
 			"label": "laminate",
 			"type": "shell",
 			"options": { "cwd": "${workspaceFolder}/build" },
-			"presentation": {
-				"clear": true,
-				"reveal": "silent"
-			},
-			"group": { "kind": "build", "isDefault": true },
+			"presentation": { "reveal": "silent" },
 
 			"command": "make",
-			"args": ["laminate"],
-
+			"args": ["laminate", "SOURCE=${file}"],
 			"windows": { "command": "nmake" }
 		},
 		{
-			"label": "downsize",
+			/* Batch laminates all HTML files. */
+			"label": "laminate-all",
 			"type": "shell",
 			"options": { "cwd": "${workspaceFolder}/build" },
-			"presentation": { "clear": true, "reveal": "silent" },
+			"presentation": { "reveal": "silent" },
 
-			"command": "",
-			"args": [
-				"mogrify",
-				"-strip",
-				"-resize",
-				"\"1280x720>\"",
-				"-colors",
-				"64",
-				"\"${input:image-pattern}\""
-			],
-
-			// Currently broken on Windows.
-			"windows": { "command": "wsl" }
-		}
-	],
-	"inputs": [
-		{
-			"id": "image-pattern",
-			"description": "Image file pattern:",
-			"default": "../*.png",
-			"type": "promptString"
+			"command": "make",
+			"args": ["laminate-all"],
+			"windows": { "command": "nmake" }
 		}
 	]
 }

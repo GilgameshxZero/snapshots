@@ -1,4 +1,12 @@
-This is a test page for `snapshot.css`.
+<!-- emilia-snapshot-properties
+Test
+2022/12/18
+test test-2
+emilia-snapshot-properties -->
+
+Snapshots are essays, deployed to emilia. They are tagged by a list of space-separated tags, then marked by a title and date, all in an HTML comment, ideally near the top of the file.
+
+This is a test page for `silver.css`.
 
 ```c++
 #include <iostream>
@@ -12,8 +20,6 @@ int main(int argc, char *argv[]) {
 # `h1` should see spacing before
 
 and `h1` and `h2` headings can be subtitled by prepending a `div`.
-
-<div class="next-subtitled"></div>
 
 ## next, we’ll observe these curly quotes
 

@@ -1,4 +1,8 @@
-<div class="next-subtitled"></div>
+<!-- emilia-snapshot-properties
+urop.guide
+2019/07/17
+monochrome
+emilia-snapshot-properties -->
 
 # urop.guide
 

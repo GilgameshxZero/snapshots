@@ -1,4 +1,8 @@
-<div class="next-subtitled"></div>
+<!-- emilia-snapshot-properties
+Predictive Text RNNs and n-grams for MIT Confessions
+2018/06/29
+monochrome
+emilia-snapshot-properties -->
 
 # Predictive Text RNNs and n-grams for MIT Confessions
 
