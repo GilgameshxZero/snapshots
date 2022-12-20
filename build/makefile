@@ -27,7 +27,7 @@ sed -E -i -z -e "s/(.*)\s*<script async src=\"https:\/\/cdn.jsdelivr.net\/npm\/k
 laminate-all:
 	@<<laminate-all.bat
 @ECHO OFF
-FOR %%F IN (..\snapshots\*.html) DO (
+FOR %%F IN (..\*.html) DO (
 	nmake laminate SOURCE=%%F
 )
 <<NOKEEP
@@ -46,7 +46,7 @@ laminate:
 	@sed -E -i -z -e "s/<head>.*<body class=\"vscode-body vscode-light\">\s*(.*)\s*<\/body>/<head><meta charset=\"utf-8\"\/><\/head><body><template>\n\1<\/template><\/body>/g" $(SOURCE)
 	@sed -E -i -z -e "s/(.*)\s*<script async src=\"https:\/\/cdn.jsdelivr.net\/npm\/katex-copytex@latest\/dist\/katex-copytex.min.js\"><\/script>(.*)/\1\2/g" $(SOURCE)
 laminate-all:
-	@for f in ../snapshots/*.html; do\
+	@for f in ../*.html; do\
 		make laminate SOURCE=$$f;\
 	done
 
