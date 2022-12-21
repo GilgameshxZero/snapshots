@@ -11,7 +11,7 @@ December 21, 2022
 
 [Codeforces 1761D](https://codeforces.com/contest/1761/problem/D) has been sitting in my head since it was proposed around a month ago.
 
-> Consider two $N$-bit binary integers, $X,Y$. Let $f(X,Y)$ be the number of _carries_ that occur during the addition of $X$ and $Y$. For example,
+> Consider two $N$-bit binary integers, $X,Y$. Let $f(X,Y)$ be the number of *carries* that occur during the addition of $X$ and $Y$. For example,
 >
 > $$\begin{aligned} &\begin{array}{r} 1_{\ \ }1_{\ \ }1\\ +\ _{1}1_{\ \ }0_{\ \ }0\\ \hline \ 1_{\ \ }0_{\ \ }1_{\ \ }1 \end{array} &\begin{array}{r} \ 1_{\ \ }0_{\ \ }1\\ +\ _{\ \ }0_{\ \ }0_{1}1\\ \hline \ 0_{\ \ }1_{\ \ }1_{\ \ }0 \end{array} & &\begin{array}{r} \ 1_{\ \ }0_{\ \ }1\\ +\ _{1}0_{1}1_{1}1\\ \hline \ 1_{\ \ }0_{\ \ }0_{\ \ }0 \end{array} \end{aligned}$$
 >
@@ -24,13 +24,13 @@ December 21, 2022
 As Wyatt pointed out, the sponsors of the round, the EZEC team at Pinely, also have a very cute mascot in EZEC-chan!
 
 ![](utulek-series-1.md-assets/1c91ed031100f3338aa5f8ed58d0405adb9ff9d7.png)
-_Pinely $\approx$ Rentec > HRT $\approx$ Jane. $\blacksquare$_
+*Pinely $\approx$ Rentec > HRT $\approx$ Jane. $\blacksquare$*
 
 It must bring EZEC-chan great disappointment, then, that I wasn’t able to solve 1761D in-contest. Inspired by Wyatt’s deeper (and most of the time, number theoretical) dives into solving problems, such as [1748D](https://codeforces.com/contest/1748/problem/D), and learning the theory behind them, I attempt the same here—which, more concretely, means exploring everything remotely related and at least somewhat accessible to a (mostly) elementary mathematician. Hence, this “1761D chapter” of blogposts will hopefully cover a lot of ground, from Pell equations and generating functions, to the Taylor series, linear sieve, and Number Theoretic Transform (NTT). Unfortunately, I don’t know much complex analysis yet, so I’ll try to avoid getting in the weeds where possible.
 
 ## 1 Reduction to Recurrence
 
-I begin each problem with an attempt to find the correct _subproblem structure_—that is, a method to compose solutions to smaller subproblems into a solution to a larger subproblem. Trivially, this must exist for any problem solvable with dynamic programming (DP) , but I argue that it exists for any algorithmic problem—the loops themselves establish the sequential subproblems to be solved. For example, in [Linear Max Gap](http://gilgamesh.cc/snapshots/linear-max-gap), I would retroactively argue that two series of subproblems exist: first, the subproblems of finding the range $K=A_{max}-A_{min}$, and secondly, the subproblems of partitioning $A_i$ and finding the max gap for each of the bucket prefixes $\{B_1,\ldots,B_i\}$.
+I begin each problem with an attempt to find the correct *subproblem structure*—that is, a method to compose solutions to smaller subproblems into a solution to a larger subproblem. Trivially, this must exist for any problem solvable with dynamic programming (DP) , but I argue that it exists for any algorithmic problem—the loops themselves establish the sequential subproblems to be solved. For example, in [Linear Max Gap](http://gilgamesh.cc/snapshots/linear-max-gap), I would retroactively argue that two series of subproblems exist: first, the subproblems of finding the range $K=A_{max}-A_{min}$, and secondly, the subproblems of partitioning $A_i$ and finding the max gap for each of the bucket prefixes $\{B_1,\ldots,B_i\}$.
 
 Playing with small examples, I have discovered, is a decent way to sniff out subproblem structure. We have for the $1$-bit numbers
 
@@ -142,7 +142,7 @@ $$\begin{aligned}
 
 thus rendering the traditional $\Theta(\ln N)$ repeated squaring on Binet’s to actually be $\Theta(N\ln N)$ with the extra $\Theta(N)$ factor coming from dealing with numbers which take $\Theta(N)$ bits to represent in memory.
 
-I must also address here that my runtimes are typically stated in reference to $N$ as the _value_ of the input, rather than the _size_ (number of bits) of the input, which is typically $\log$-size of the value. Some algorithms, such as the vEB tree, are more concisely interpreted with a runtime in terms of the input _size_, but will primarily not be dealing with those sorts of algorithms.
+I must also address here that my runtimes are typically stated in reference to $N$ as the *value* of the input, rather than the *size* (number of bits) of the input, which is typically $\log$-size of the value. Some algorithms, such as the vEB tree, are more concisely interpreted with a runtime in terms of the input *size*, but will primarily not be dealing with those sorts of algorithms.
 
 Anyway, solution $(1.3)$ to the one-dimensional Fibonacci recurrence is a glimmer of hope that two-dimensional recurrence $(1.1)$ can be solved in $O(N\ln N)$, or, even better, in $\Theta(N)$ or $\Theta(\ln N)$. However, I was not able to come up with such a solution in-contest.
 
@@ -159,7 +159,7 @@ $$\begin{array}{r}
 
 This example stinks of the same subproblem structure as in section $(1)$. I explain below.
 
-When we add a most significant bit to each of the above $7$-bit numbers (hence forming a pair of most significant bits), we see a new carry iff the bit pair is $(0,1),(1,0)$, or $(1,1)$. Similarly, if the leading bit were not carried, we would not see a new carry iff the bit pair is $(0,0),(0,1)$, or $(1,1)$. This observation, that whether or not the $i+1$-th bit carries only depends on the carry status of the $i$-th bit, is a case of _state space simplification_. That is, the carry status of the $1\ldots i-1$ bits doesn’t influence whether or not the $i+1$-th bit carries. So, when we move from considering the $i$-th bit to considering the $i+1$-th bit, we don’t have to store $\Theta(N)$ information in our state, but only $\Theta(1)$ information.
+When we add a most significant bit to each of the above $7$-bit numbers (hence forming a pair of most significant bits), we see a new carry iff the bit pair is $(0,1),(1,0)$, or $(1,1)$. Similarly, if the leading bit were not carried, we would not see a new carry iff the bit pair is $(0,0),(0,1)$, or $(1,1)$. This observation, that whether or not the $i+1$-th bit carries only depends on the carry status of the $i$-th bit, is a case of *state space simplification*. That is, the carry status of the $1\ldots i-1$ bits doesn’t influence whether or not the $i+1$-th bit carries. So, when we move from considering the $i$-th bit to considering the $i+1$-th bit, we don’t have to store $\Theta(N)$ information in our state, but only $\Theta(1)$ information.
 
 $\Theta(1)$ state information is the best one can ask for—so, if we were to consider the states and subproblems as the sum operations of two $i$-bit numbers for $i\leq N$, then we process $\Theta(N)$ state information in total, which is within our runtime bounds. This suggests that this subproblem structure is a promising approach. However, attempting a DP solution from this point lands us back with recurrence $(1.1)$, which suggests that there are additional simplifications to be made. Indeed, the example $(2.1)$ is much longer than the examples we used in section $(1)$, and lends itself to additional insights.
 
@@ -169,7 +169,7 @@ $$\begin{matrix}
 0&1&1&1&0&0&1&1
 \end{matrix}\tag{2.2}$$
 
-At this point, this problem smells like the _string runs_ simplification. I will explain below.
+At this point, this problem smells like the *string runs* simplification. I will explain below.
 
 Three of the four choices of bit pairs for the $i+1$-th bit always continues the carry status of the $i$-th bit, and one choice always flips the carry status. How many ordered pairs $(x_1,x_2)$ generate carry status string like representation $(2.2)$?
 
@@ -188,28 +188,28 @@ $$\begin{matrix}
 \^{}&&&\^{}&&\^{}&&\^{}
 \end{matrix}.$$
 
-So, to create representation $(2.2)$ there are $1^4$ choices for the four flips, and $3^4$ choices for the four non-flip indices, for a total of $81$ ordered pairs of $(x_1,y_1)$. This is a nice result! We can stop here and, with some work, derive a nice $\Theta(N)$ closed form for $A_{N,K}$, but another _state space simplification_ is possible to make that work easier.
+So, to create representation $(2.2)$ there are $1^4$ choices for the four flips, and $3^4$ choices for the four non-flip indices, for a total of $81$ ordered pairs of $(x_1,y_1)$. This is a nice result! We can stop here and, with some work, derive a nice $\Theta(N)$ closed form for $A_{N,K}$, but another *state space simplification* is possible to make that work easier.
 
-With the carry status string representation in $(2.2)$, we can derive the number of carries $K$ from the string which has $N$ bits of information. I’ve come to find that the _bits_ of information in a representation is a poor heuristic for the ability of a representation to be further simplified—in fact, the count of _objects_ in a representation is typically a better heuristic. Still, representation $(2.2)$ has $N$ objects of information. Representation $(2.3)$ transforms this $N$-bit number into $|\text{flips}|$ numbers each representing the number of bits before the next flip. This is $|\text{flips}|$ objects, which is always less than, and better than $N$ objects.
+With the carry status string representation in $(2.2)$, we can derive the number of carries $K$ from the string which has $N$ bits of information. I’ve come to find that the *bits* of information in a representation is a poor heuristic for the ability of a representation to be further simplified—in fact, the count of *objects* in a representation is typically a better heuristic. Still, representation $(2.2)$ has $N$ objects of information. Representation $(2.3)$ transforms this $N$-bit number into $|\text{flips}|$ numbers each representing the number of bits before the next flip. This is $|\text{flips}|$ objects, which is always less than, and better than $N$ objects.
 
-Finally, since we only care about the number of carries, we need only store the information about the lengths of the $1$-carry-status runs, which is a total of $|\text{1-runs}|$ objects of information! This gives the following _string runs_ representation of example $(2.1)$:
+Finally, since we only care about the number of carries, we need only store the information about the lengths of the $1$-carry-status runs, which is a total of $|\text{1-runs}|$ objects of information! This gives the following *string runs* representation of example $(2.1)$:
 
 $$2,3\tag{2.4}$$
 
 where the $2$ denotes the run of 1-carry-statuses in indices $0$ through $1$, and the $3$ denotes the run of 1-carry-statuses in indices $4$ through $6$. Indeed, $2+3=5$ carries as we saw in example $(2.1)$.
 
-The _string runs_ representation is generally pretty powerful, and I’ve seen it many times before, most recently in [1767C](https://codeforces.com/contest/1767/problem/C). There, again, we have binary strings which can be simplified into runs, and furthermore, only the final run matters, lending itself to yet another state space simplification.
+The *string runs* representation is generally pretty powerful, and I’ve seen it many times before, most recently in [1767C](https://codeforces.com/contest/1767/problem/C). There, again, we have binary strings which can be simplified into runs, and furthermore, only the final run matters, lending itself to yet another state space simplification.
 
 Now we’re in the home stretch, which unfortunately is a ton of precise combinatorics. I always find combinatorial solutions difficult to follow unless I work through them myself, and unfortunately I don’t think I’ve done a good enough job here that this isn’t the case.
 
-Taking our state as the runs representation in $(2.4)$, we must ask next: how many $(x_1,x_2)$ correspond with each representation? For $r$ runs ($r=2$ in $(2.4)$), we must have $2r$ flips ($2r=4$ in $(2.3)$), which leads to $3^{N-2r}$ _or_ $3^{N-2r+1}$ possible choices of $(x_1,x_2)$ which generate the flips representation in $(2.3)$. The off-by-one difference is due to the position of the final flip—if it is in bit $N+1$, it frees up an additional bit in the first $N$ bits for which we have $3$ choices.
+Taking our state as the runs representation in $(2.4)$, we must ask next: how many $(x_1,x_2)$ correspond with each representation? For $r$ runs ($r=2$ in $(2.4)$), we must have $2r$ flips ($2r=4$ in $(2.3)$), which leads to $3^{N-2r}$ *or* $3^{N-2r+1}$ possible choices of $(x_1,x_2)$ which generate the flips representation in $(2.3)$. The off-by-one difference is due to the position of the final flip—if it is in bit $N+1$, it frees up an additional bit in the first $N$ bits for which we have $3$ choices.
 
 As discussed, string run representation $(2.4)$ contains slightly less information, and thus we expect even more ordered pairs to generate the same representation. Indeed, we no longer know the positions of the $0$-carry-status bits, of which there are $3$. We must somehow first place the $2$ runs in with the $3$ $0$-carry-status bits, and then scale by either $3^{N-2r}$ or $3^{N-2r+1}$.
 
 Smell something? Yeah, that’s ~~America~~ stars and bars (twice-fold).
 
 ![](utulek-series-1.md-assets/Flag_of_the_United_States.svg)
-_Please stop asking if I receive unemployment benefits._
+*Please stop asking if I receive unemployment benefits.*
 
 Supposing we wanted $K\geq 0$ carries, then, it suffices first to consider the number of runs we use:
 
