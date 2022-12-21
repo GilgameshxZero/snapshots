@@ -1,10 +1,10 @@
 <!-- emilia-snapshot-properties
-2D Recurrences and Combinatorial Arguments [1761D]
+2D Recurrences and Combinatorial Arguments
 2022/12/21
 utulek
 emilia-snapshot-properties -->
 
-# 2D Recurrences and Combinatorial Arguments [1761D]
+# 2D Recurrences and Combinatorial Arguments
 
 December 21, 2022
 Útulek Series, 1761D Chapter | 1
