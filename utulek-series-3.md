@@ -42,7 +42,7 @@ $$S_i=\frac{1}{\sqrt{5}}((\frac{1+\sqrt{5}}{2})^i	-(\frac{1-\sqrt{5}}{2})^i).$$
 
 In hindsight, it is obvious why this is the case. I put forth the hypothesis in [2D Recurrences and Combinatorial Arguments](utulek-series-1) that “all twin (and likely higher orders) two-dimensional recurrences can be simplified into single two-dimensional recurrences via repeated substitution”. Allow me to state this conjecture more rigorously:
 
-**Conjecture 1.2 (Recurrence Detanglement)**: $n$-variate, $z$-order, $d$-degree, $d_0$-dimensional recurrences may always be reduced to $n$ disjoint single-variable, $z$-order, $d$-degree, $d_0$-dimensional recurrences.
+**Conjecture 1.2 (Recurrence Detanglement)**: $n$-variate, $z$-order, $k$-degree, $d$-dimensional recurrences may always be reduced to $n$ disjoint single-variable, $z$-order, $k$-degree, $d$-dimensional recurrences.
 
 Here, I use the terminology $n$-variable to mean $n$ sequences of variables, order to denote the number of terms to be added together for each recurrence, degree to denote the maximum power of terms we see multiplied together, and dimension to denote the number of indices we use to label each variable sequence.
 
