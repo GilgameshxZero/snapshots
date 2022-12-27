@@ -89,7 +89,7 @@ which coincides with Binet’s formula as expected.
 
 This one was very tricky for me but I ended up solving it at the end of the day.
 
-The key here is sequential isolation of the variable powers with liberal use of geometric series reinterpretations. Of course, one should expect combinatorial arguments to arise at some point.
+The key here is sequential isolation of the variable powers with liberal use of geometric series reinterpretations. Of course, one should expect combinatorial arguments to arise at some point. We use $[x]$ to denote “the coefficient of $x$.”
 
 $$\begin{aligned}
 p(x,y)&=\frac{1}{1-x-xy}=\frac{1}{1-x}\cdot\frac{1}{1-\frac{x}{1-x}y},\\[3ex]
