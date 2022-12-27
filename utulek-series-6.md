@@ -109,6 +109,8 @@ The reason radicals don’t show up here is likely to due with the degrees of th
 
 ## 4 Solving 1761D
 
+Similarly,
+
 $$\begin{aligned}
 g(x,y)&=\frac{1-2xy}{1-3x-3xy+8x^2y}\\[3ex]
 &=\frac{1}{1-3x}\cdot\frac{1-2xy}{1-\frac{3x-8x^2}{1-3x}y},\\[3ex]
@@ -132,6 +134,20 @@ G_{3,2}&=3^{-1}{1\choose 0}(3{1\choose 1}+{1\choose 2})+3{1\choose 1}(3{1\choose
 \end{aligned}$$
 
 as desired.
+
+Note additionally that this form,
+
+$$G_{i,j}=\sum_{k=0}^{j-1}3^{i-2j+2k}{j-1\choose k}(3{i-j\choose j-k-1}+{i-j\choose j-k}),\tag{0.1}$$
+
+is much more natural than either of the forms provided in [2D Recurrences and Combinatorial Arguments](utulek-series-1), either
+
+$$G_{i,j}=\sum_{k=1}^j{(3^{i-2k}{i-j\choose k}+3^{i-2k+1}{i-j\choose k-1}){j-1\choose k-1}}$$
+
+which only applies to $j\geq 1$ and must have $3^{i-2k}$ zeroed out when $2k>i$, or alternatively, also from the same post,
+
+$$G_{i,j}=\sum_{k=1}^{2j}{3^{i-k}{i-j\choose \lfloor k/2\rfloor}{j-1\choose \lceil k/2\rceil-1}}$$
+
+which has floor and ceiling functions out of nowhere and likewise also only applies for $j\geq 1$.
 
 ---
 
