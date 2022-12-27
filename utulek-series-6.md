@@ -137,7 +137,7 @@ as desired.
 
 Note additionally that this form,
 
-$$G_{i,j}=\sum_{k=0}^{j-1}3^{i-2j+2k}{j-1\choose k}(3{i-j\choose j-k-1}+{i-j\choose j-k}),\tag{0.1}$$
+$$G_{i,j}=\sum_{k=0}^{j-1}3^{i-2j+2k}{j-1\choose k}(3{i-j\choose j-k-1}+{i-j\choose j-k}),\tag{4.1}$$
 
 is much more natural than either of the forms provided in [2D Recurrences and Combinatorial Arguments](utulek-series-1), either
 
